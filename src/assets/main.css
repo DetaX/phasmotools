@@ -1,11 +1,20 @@
 @import './base.css';
 
+@import url('https://fonts.cdnfonts.com/css/lazy-dog');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 #app {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
   font-weight: normal;
+  font-family: 'Indie Flower', cursive;
+}
+h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 3.5rem;
 }
 
 a,
@@ -15,12 +24,118 @@ a,
   transition: 0.4s;
 }
 
+.config {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.config h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
+}
+.config h3 {
+  font-weight: bold;
+}
+
+.subconfig {
+  margin: 1rem;
+  padding: 2rem;
+  background: #693a25cf;
+  box-shadow: 2px 2px 5px 1px rgb(108 66 51 / 56%);
+  width: 100%;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.form > div {
+  text-align: center;
+}
+.form input {
+  min-width: 380px;
+  height: 38px;
+  font-size: 1.25rem;
+  background: #0000007d;
+  padding: 0.5rem;
+  border: 3px solid #6c4233;
+  color: #4fd359;
+  vertical-align: top;
+  margin-bottom: 0.5rem;
+  font-family: 'Indie Flower', cursive;
+}
+.form button {
+  height: 38px;
+  font-size: 1rem;
+  background: #0000007d;
+  padding: 0.5rem;
+  border: 3px solid #6c4233;
+  color: #4fd359;
+  margin-left: .5rem;
+  transition: all .5s;
+  font-family: 'Indie Flower', cursive;
+}
+.form button:hover {
+  cursor: pointer;
+  border: 3px solid #4fd359;
+}
+.parameter {
+  background: #fff;
+  padding: 1rem;
+  margin: 1rem 0;
+  padding-left: 65px;
+  letter-spacing: 1px;
+}
+.parameter:before {
+  content: '';
+  font: var(--fa-font-solid);
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.75rem;
+  color: #fff;
+
+}
+.parameter.up:before {
+  content: '\f062';
+  background: #359535;
+}
+.parameter.down:before {
+  content: '\f063';
+  background: #c32424;
+}
+.parameter.danger:before {
+  content: '\f071';
+  background: #c32424;
+}
+.options {
+  display: flex;
+  flex-wrap: wrap;
+}
+input[type=radio] {
+  margin-right: .25rem;
+}
+label {
+  margin-right: 1rem;
+}
+.small {
+  font-size: .75rem;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
-
 @media (min-width: 1024px) {
   body {
     display: flex;
@@ -29,7 +144,10 @@ a,
 
   #app {
     display: grid;
-    //grid-template-columns: 1fr 1fr;
+    /*grid-template-columns: 1fr 1fr;*/
     padding: 0 2rem;
+  }
+  .subconfig {
+    width: 30%;
   }
 }
