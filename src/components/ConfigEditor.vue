@@ -1023,7 +1023,9 @@ export default {
     },
     getParameterClass(parameter) {
       this.$nextTick(function () {
-        let value = parameter.options[parameter.selected].value;
+        let param = parameter.options[parameter.selected];
+        if (!param) return;
+        let value = param.value;
         let refName = parameter.id;
         let elem = this.$refs[refName][0];
         switch(value) {
