@@ -1,991 +1,44 @@
 <script>
-const AMATEUR = "ehcbcecbbcbacaafaaddegaaebbcbbaaaaaa";
-const INTERMEDIAIRE = "egdbcecbbcbabbaebaddedabdbbbbbaaaaaa"
-const PROFESSIONNEL = "efebcecbbccbabadcaddeaadcbbbbbaaaaaa"
-const CAUCHEMAR = "eeebcecbbcccacaccbcdeaadbaababaaaaaa"
-const TWENTYFOUR = "aeeaceaabecdaaaacaadeacdaaaaaaaaaaaa"
+import cfg from '../assets/data.js'
 
 export default {
   data() {
     return {
+      PRESET_CODES: [
+        {"name": "Remise à zéro", "code": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"},
+        {"name": "Amateur", "code": "ehcbcecbbcbacaafaaddegaaebbcbbazzzzz"},
+        {"name": "Intermédiaire", "code": "egdbcecbbcbabbaebaddedabdbbbbbazzzzz"},
+        {"name": "Professionnel", "code": "efebcecbbccbabadcaddeaadcbbbbbazzzzz"},
+        {"name": "Cauchemar", "code": "eeebcecbbcccacaccbcdeaadbaababazzzzz"},
+        {"name": "x24", "code": "aeeaceaabecdaaaacaadeacdaaaaaazzzzzz"},
+      ],
       code: '',
-      config: [
-         {
-          "name": "Joueur",
-          "parameters": [
-            {
-              "name": "Santé mentale initiale <span class='small'>(%)</span>",
-              "id": "sante_mentale_init",
-              "options": [
-                {
-                  "name": "0",
-                  "value": "+"
-                },
-                {
-                  "name": "25",
-                  "value": "+"
-                },
-                {
-                  "name": "50",
-                  "value": "+"
-                },
-                {
-                  "name": "75",
-                  "value": "+"
-                },
-                {
-                  "name": "100",
-                  "value": 0
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Santé mentale par pillule <span class='small'>(%)</span>",
-              "id": "sante_mentale_pill",
-              "options": [
-                {
-                  "name": "0",
-                  "value": "+"
-                },
-                {
-                  "name": "5",
-                  "value": "+"
-                },
-                {
-                  "name": "10",
-                  "value": "+"
-                },
-                {
-                  "name": "20",
-                  "value": "+"
-                },
-                {
-                  "name": "25",
-                  "value": "+"
-                },
-                {
-                  "name": "30",
-                  "value": "+"
-                },
-                {
-                  "name": "35",
-                  "value": "+"
-                },
-                {
-                  "name": "40",
-                  "value": 0
-                },
-                {
-                  "name": "45",
-                  "value": "-"
-                },
-                {
-                  "name": "50",
-                  "value": "-"
-                },
-                {
-                  "name": "75",
-                  "value": "-"
-                },
-                {
-                  "name": "100",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Multiplicateur de perte de santé mentale",
-              "id": "sante_mentale_mult",
-              "options": [
-                {
-                  "name": "0",
-                  "value": "-"
-                },
-                {
-                  "name": "0.5",
-                  "value": "-"
-                },
-                {
-                  "name": "1",
-                  "value": 1.5
-                },
-                {
-                  "name": "1.5",
-                  "value": "+"
-                },
-                {
-                  "name": "2",
-                  "value": "+"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Sprint",
-              "id": "sprint",
-              "options": [
-                {
-                  "name": "Off",
-                  "value": "+"
-                },
-                {
-                  "name": "On",
-                  "value": 1
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Durée du sprint <span class='small'>(s)</span>",
-              "id": "sprint_duree",
-              "options": [
-                {
-                  "name": "1",
-                  "value": "+"
-                },
-                {
-                  "name": "2",
-                  "value": "+"
-                },
-                {
-                  "name": "3",
-                  "value": 1
-                },
-                {
-                  "name": "4",
-                  "value": "-"
-                },
-                {
-                  "name": "5",
-                  "value": "-"
-                },
-                {
-                  "name": "Illimitée",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Temps de récupération du sprint <span class='small'>(s)</span>",
-              "id": "temps_recup_sprint",
-              "options": [
-                {
-                  "name": "1",
-                  "value": "-"
-                },
-                {
-                  "name": "2",
-                  "value": "-"
-                },
-                {
-                  "name": "3",
-                  "value": "-"
-                },
-                {
-                  "name": "4",
-                  "value": "-"
-                },
-                {
-                  "name": "5",
-                  "value": 1
-                },
-                {
-                  "name": "6",
-                  "value": "+"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Vitesse du joueur <span class='small'>(%)</span>",
-              "id": "vitesse_joueur",
-              "options": [
-                {
-                  "name": "50",
-                  "value": "+"
-                },
-                {
-                  "name": "75",
-                  "value": "+"
-                },
-                {
-                  "name": "100",
-                  "value": 1
-                },
-                {
-                  "name": "125",
-                  "value": "-"
-                },
-                {
-                  "name": "150",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Lampes de poches",
-              "id": "lampes",
-              "options": [
-                {
-                  "name": "Off",
-                  "value": "+"
-                },
-                {
-                  "name": "On",
-                  "value": 1
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Perte des objets au décès",
-              "id": "perte_objets",
-              "options": [
-                {
-                  "name": "Off",
-                  "value": "*"
-                },
-                {
-                  "name": "On",
-                  "value": 1
-                }
-              ],
-              "selected": null
-            }
-          ]
-        },
-        {
-          "name": "Entité",
-          "parameters": [
-            {
-              "name": "Vitesse de déplacement <span class='small'>(%)</span>",
-              "id": "vitesse_entite",
-              "options": [
-                {
-                  "name": "50",
-                  "value": "-"
-                },
-                {
-                  "name": "75",
-                  "value": "-"
-                },
-                {
-                  "name": "100",
-                  "value": 1.5
-                },
-                {
-                  "name": "125",
-                  "value": "+"
-                },
-                {
-                  "name": "150",
-                  "value": "+"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Fréquence de déplacement",
-              "id": "freq_deplac_entite",
-              "options": [
-                {
-                  "name": "Faible",
-                  "value": "-"
-                },
-                {
-                  "name": "Moyenne",
-                  "value": 1
-                },
-                {
-                  "name": "Élevée",
-                  "value": "+"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Changement de pièce préférée",
-              "id": "chgt_piece",
-              "options": [
-                {
-                  "name": "Nulle",
-                  "value": 0
-                },
-                {
-                  "name": "Faible",
-                  "value": "+"
-                },
-                {
-                  "name": "Moyennne",
-                  "value": "+"
-                },
-                {
-                  "name": "Élevée",
-                  "value": "+"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Nombre d'interactions",
-              "id": "nombre_interactions",
-              "options": [
-                {
-                  "name": "Faible",
-                  "value": "+"
-                },
-                {
-                  "name": "Moyennne",
-                  "value": "+"
-                },
-                {
-                  "name": "Élevée",
-                  "value": 1.5
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Fréquence des événements",
-              "id": "freq_event",
-              "options": [
-                {
-                  "name": "Faible",
-                  "value": 1
-                },
-                {
-                  "name": "Moyennne",
-                  "value": "-"
-                },
-                {
-                  "name": "Élevée",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Entité amicale",
-              "id": "entite_friendly",
-              "options": [
-                {
-                  "name": "Off",
-                  "value": 0
-                },
-                {
-                  "name": "On",
-                  "value": "*"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Période de grâce <span class='small'>(s)</span>",
-              "id": "periode_grace",
-              "options": [
-                {
-                  "name": "0",
-                  "value": "+"
-                },
-                {
-                  "name": "1",
-                  "value": "+"
-                },
-                {
-                  "name": "2",
-                  "value": "+"
-                },
-                {
-                  "name": "3",
-                  "value": "+"
-                },
-                {
-                  "name": "4",
-                  "value": "+"
-                },
-                {
-                  "name": "5",
-                  "value": 1.5
-                },
-                {
-                  "name": "6",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Durée des chasses",
-              "id": "duree_chasses",
-              "options": [
-                {
-                  "name": "Faible",
-                  "value": 1
-                },
-                {
-                  "name": "Moyennne",
-                  "value": "+"
-                },
-                {
-                  "name": "Élevée",
-                  "value": "+"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Mourir augmente la durée des chasses",
-              "id": "mourir_duree_chasses",
-              "options": [
-                {
-                  "name": "Off",
-                  "value": 1
-                },
-                {
-                  "name": "Faible",
-                  "value": 1.5
-                },
-                {
-                  "name": "Moyenne",
-                  "value": 1.5
-                },
-                {
-                  "name": "Élevée",
-                  "value": 1.5
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Preuves apportées",
-              "id": "preuves",
-              "options": [
-                {
-                  "name": "0",
-                  "value": "+"
-                },
-                {
-                  "name": "1",
-                  "value": "+"
-                },
-                {
-                  "name": "2",
-                  "value": "+"
-                },
-                {
-                  "name": "3",
-                  "value": 1.5
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Probabilité des empreintes <span class='small'>(%)</span>",
-              "id": "empreintes_proba",
-              "options": [
-                {
-                  "name": "25",
-                  "value": "+"
-                },
-                {
-                  "name": "50",
-                  "value": "+"
-                },
-                {
-                  "name": "75",
-                  "value": "+"
-                },
-                {
-                  "name": "100",
-                  "value": 1.5
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Durée des empreintes <span class='small'>(s)</span>",
-              "id": "empreinte_durees",
-              "options": [
-                {
-                  "name": "15",
-                  "value": "+"
-                },
-                {
-                  "name": "30",
-                  "value": "+"
-                },
-                {
-                  "name": "60",
-                  "value": "+"
-                },
-                {
-                  "name": "90",
-                  "value": "+"
-                },
-                {
-                  "name": "120",
-                  "value": 1.5
-                },
-                {
-                  "name": "180",
-                  "value": "-"
-                },
-                {
-                  "name": "Illimitée",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            }
-          ]
-        },
-        {
-          "name": "Contrat",
-          "parameters": [
-            {
-              "name": "Temps de préparation <span class='small'>(s)</span>",
-              "id": "temps_prepa",
-              "options": [
-                {
-                  "name": "0",
-                  "value": "+"
-                },
-                {
-                  "name": "60",
-                  "value": "+"
-                },
-                {
-                  "name": "60",
-                  "value": "+"
-                },
-                {
-                  "name": "120",
-                  "value": "+"
-                },
-                {
-                  "name": "180",
-                  "value": "+"
-                },
-                {
-                  "name": "240",
-                  "value": "+"
-                },
-                {
-                  "name": "300",
-                  "value": 2.5
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Météo",
-              "id": "meteo",
-              "options": [
-                {
-                  "name": "Aléatoire",
-                  "value": 0
-                },
-                {
-                  "name": "Pluie légère",
-                  "value": "+"
-                },
-                {
-                  "name": "Pluie forte",
-                  "value": "+"
-                },
-                {
-                  "name": "Neige",
-                  "value": "+"
-                },
-                {
-                  "name": "Vent",
-                  "value": "+"
-                },
-                {
-                  "name": "Temps clair",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Portes ouvertes en début de partie",
-              "id": "portes_debut",
-              "options": [
-                {
-                  "name": "Aucune",
-                  "value": 0
-                },
-                {
-                  "name": "Faible",
-                  "value": "+"
-                },
-                {
-                  "name": "Moyenne",
-                  "value": "+"
-                },
-                {
-                  "name": "Élevée",
-                  "value": "+"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Caches",
-              "id": "caches",
-              "options": [
-                {
-                  "name": "Aucune",
-                  "value": "+"
-                },
-                {
-                  "name": "Faible",
-                  "value": "+"
-                },
-                {
-                  "name": "Moyenne",
-                  "value": "+"
-                },
-                {
-                  "name": "Élevée",
-                  "value": "+"
-                },
-                {
-                  "name": "Trés élevée",
-                  "value": 2
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Moniteur de santé mentale",
-              "id": "moniteur_sante",
-              "options": [
-                {
-                  "name": "Off",
-                  "value": "+"
-                },
-                {
-                  "name": "On",
-                  "value": 1.5
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Moniteur d'activité",
-              "id": "moniteur_emf",
-              "options": [
-                {
-                  "name": "Off",
-                  "value": "+"
-                },
-                {
-                  "name": "On",
-                  "value": 1.5
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Disjoncteur au début du contrat",
-              "id": "disjoncteur",
-              "options": [
-                {
-                  "name": "Cassé",
-                  "value": "+"
-                },
-                {
-                  "name": "Off",
-                  "value": "+"
-                },
-                {
-                  "name": "On",
-                  "value": 1.5
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Disjoncteur visible sur la carte",
-              "id": "disjoncteur_map",
-              "options": [
-                {
-                  "name": "Off",
-                  "value": "+"
-                },
-                {
-                  "name": "On",
-                  "value": 1.5
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Quantité d'Objets Maudits",
-              "id": "nb_maudits",
-              "options": [
-                {
-                  "name": "0",
-                  "value": "+"
-                },
-                {
-                  "name": "1",
-                  "value": 1
-                },
-                {
-                  "name": "2",
-                  "value": "-"
-                },
-                {
-                  "name": "3",
-                  "value": "-"
-                },
-                {
-                  "name": "4",
-                  "value": "-"
-                },
-                {
-                  "name": "5",
-                  "value": "-"
-                },
-                {
-                  "name": "6",
-                  "value": "-"
-                }
-                ],
-              "selected": null
-            },
-            {
-              "name": "Objet Maudit #1",
-              "id": "maudit_1",
-              "options": [
-                {
-                  "name": "Aléatoire",
-                  "value": 1
-                },
-                {
-                  "name": "Cartes de tarot",
-                  "value": "-"
-                },
-                {
-                  "name": "Planche Ouija",
-                  "value": "-"
-                },
-                {
-                  "name": "Miroir hanté",
-                  "value": "-"
-                },
-                {
-                  "name": "Boîte à musique",
-                  "value": "-"
-                },
-                {
-                  "name": "Cercle d'invocation",
-                  "value": "-"
-                },
-                {
-                  "name": "Poupée vaudou",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Objet Maudit #2",
-              "id": "maudit_2",
-              "options": [
-                {
-                  "name": "Aléatoire",
-                  "value": 1
-                },
-                {
-                  "name": "Cartes de tarot",
-                  "value": "-"
-                },
-                {
-                  "name": "Planche Ouija",
-                  "value": "-"
-                },
-                {
-                  "name": "Miroir hanté",
-                  "value": "-"
-                },
-                {
-                  "name": "Boîte à musique",
-                  "value": "-"
-                },
-                {
-                  "name": "Cercle d'invocation",
-                  "value": "-"
-                },
-                {
-                  "name": "Poupée vaudou",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Objet Maudit #3",
-              "id": "maudit_3",
-              "options": [
-                {
-                  "name": "Aléatoire",
-                  "value": 1
-                },
-                {
-                  "name": "Cartes de tarot",
-                  "value": "-"
-                },
-                {
-                  "name": "Planche Ouija",
-                  "value": "-"
-                },
-                {
-                  "name": "Miroir hanté",
-                  "value": "-"
-                },
-                {
-                  "name": "Boîte à musique",
-                  "value": "-"
-                },
-                {
-                  "name": "Cercle d'invocation",
-                  "value": "-"
-                },
-                {
-                  "name": "Poupée vaudou",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Objet Maudit #4",
-              "id": "maudit_4",
-              "options": [
-                {
-                  "name": "Aléatoire",
-                  "value": 1
-                },
-                {
-                  "name": "Cartes de tarot",
-                  "value": "-"
-                },
-                {
-                  "name": "Planche Ouija",
-                  "value": "-"
-                },
-                {
-                  "name": "Miroir hanté",
-                  "value": "-"
-                },
-                {
-                  "name": "Boîte à musique",
-                  "value": "-"
-                },
-                {
-                  "name": "Cercle d'invocation",
-                  "value": "-"
-                },
-                {
-                  "name": "Poupée vaudou",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Objet Maudit #5",
-              "id": "maudit_5",
-              "options": [
-                {
-                  "name": "Aléatoire",
-                  "value": 1
-                },
-                {
-                  "name": "Cartes de tarot",
-                  "value": "-"
-                },
-                {
-                  "name": "Planche Ouija",
-                  "value": "-"
-                },
-                {
-                  "name": "Miroir hanté",
-                  "value": "-"
-                },
-                {
-                  "name": "Boîte à musique",
-                  "value": "-"
-                },
-                {
-                  "name": "Cercle d'invocation",
-                  "value": "-"
-                },
-                {
-                  "name": "Poupée vaudou",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            },
-            {
-              "name": "Objet Maudit #6",
-              "id": "maudit_6",
-              "options": [
-                {
-                  "name": "Aléatoire",
-                  "value": 1
-                },
-                {
-                  "name": "Cartes de tarot",
-                  "value": "-"
-                },
-                {
-                  "name": "Planche Ouija",
-                  "value": "-"
-                },
-                {
-                  "name": "Miroir hanté",
-                  "value": "-"
-                },
-                {
-                  "name": "Boîte à musique",
-                  "value": "-"
-                },
-                {
-                  "name": "Cercle d'invocation",
-                  "value": "-"
-                },
-                {
-                  "name": "Poupée vaudou",
-                  "value": "-"
-                }
-              ],
-              "selected": null
-            }
-          ]
-        }
-      ]
+      config: cfg,
+      editMode: true,
+      helpShown: false
     }
   },
   methods: {
     _alphabetRange (start, end) {
       return new Array(end.charCodeAt(0) - start.charCodeAt(0)).fill().map((d, i) => String.fromCharCode(i + start.charCodeAt(0)));
     },
+    copy() {
+      this.$refs.clone.focus();
+      document.execCommand('copy');
+      let textElem = this.$refs.copiedText;
+      textElem.classList.remove('animate');
+      void textElem.offsetWidth;
+      textElem.classList.add('animate');
+    },
     formatDifference(value1, value2) {
       let value = value2 - value1;
       if (value > 0) value = "+" + value;
       return value;
     },
-    loadCode() {
+    loadCode(preset = null) {
+      if (preset && typeof preset === 'string') this.code = preset;
+      else this.editMode = false;
+
       let alphabetRange = this._alphabetRange('a', 'z');
       window.location.hash = this.code;
       let codeSplit = this.code.split('');
@@ -996,30 +49,6 @@ export default {
           index++;
         })
       });
-      this.$nextTick(function () {
-        this.updateForm();
-      });
-
-    },
-    loadAmateur() {
-      this.code = AMATEUR;
-      this.loadCode();
-    },
-    loadIntermediaire() {
-      this.code = INTERMEDIAIRE;
-      this.loadCode();
-    },
-    loadProfessionnel() {
-      this.code = PROFESSIONNEL;
-      this.loadCode();
-    },
-    loadCauchemar() {
-      this.code = CAUCHEMAR;
-      this.loadCode();
-    },
-    loadTwentyFour() {
-      this.code = TWENTYFOUR;
-      this.loadCode();
     },
     getParameterClass(parameter) {
       this.$nextTick(function () {
@@ -1045,58 +74,79 @@ export default {
 
       return "parameter";
     },
+    getViewIcon(value) {
+      switch(value) {
+        case "+":
+          return ' up';
+        case "-":
+          return ' down';
+        case "*":
+          return ' danger';
+        default:
+          break;
+      }
+    },
     updateForm() {
-      try {
+      if (!this.editMode) return;
+      let nbMaudits = this.$refs.nb_maudits[0].getAttribute('data-selected');
+      if (nbMaudits === "-1") nbMaudits = 0;
+      for (let i=6;i>nbMaudits;i--) {
+        this.$refs["maudit_"+i][0].style.display = 'none';
+      }
+      for (let i=nbMaudits;i>0;i--) {
+        this.$refs["maudit_"+i][0].style.display = 'block';
+      }
 
-        let nbMaudits = this.$refs.nb_maudits[0].getAttribute('data-selected');
-        for (let i=6;i>nbMaudits;i--) {
-          this.$refs["maudit_"+i][0].style.display = 'none';
-        }
-        for (let i=nbMaudits;i>0;i--) {
-          this.$refs["maudit_"+i][0].style.display = 'block';
-        }
+      let sprint = this.$refs.sprint[0].getAttribute('data-selected');
+      if (sprint === "0") {
+        this.$refs["sprint_duree"][0].style.display = 'none';
+        this.$refs["temps_recup_sprint"][0].style.display = 'none';
+      }
+      else {
+        this.$refs["sprint_duree"][0].style.display = 'block';
+        this.$refs["temps_recup_sprint"][0].style.display = 'block';
+      }
 
-        let sprint = this.$refs.sprint[0].getAttribute('data-selected');
-        if (sprint === "0") {
-          this.$refs["sprint_duree"][0].style.display = 'none';
-          this.$refs["temps_recup_sprint"][0].style.display = 'none';
-        }
-        else {
-          this.$refs["sprint_duree"][0].style.display = 'block';
-          this.$refs["temps_recup_sprint"][0].style.display = 'block';
-        }
+      let entiteFriendly = this.$refs.entite_friendly[0].getAttribute('data-selected');
+      if (entiteFriendly === "1") {
+        this.$refs["periode_grace"][0].style.display = 'none';
+        this.$refs["duree_chasses"][0].style.display = 'none';
+        this.$refs["mourir_duree_chasses"][0].style.display = 'none';
+      }
+      else {
+        this.$refs["periode_grace"][0].style.display = 'block';
+        this.$refs["duree_chasses"][0].style.display = 'block';
+        this.$refs["mourir_duree_chasses"][0].style.display = 'block';
+      }
 
-        let entiteFriendly = this.$refs.entite_friendly[0].getAttribute('data-selected');
-        if (entiteFriendly === "1") {
-          this.$refs["periode_grace"][0].style.display = 'none';
-          this.$refs["duree_chasses"][0].style.display = 'none';
-          this.$refs["mourir_duree_chasses"][0].style.display = 'none';
-        }
-        else {
-          this.$refs["periode_grace"][0].style.display = 'block';
-          this.$refs["duree_chasses"][0].style.display = 'block';
-          this.$refs["mourir_duree_chasses"][0].style.display = 'block';
-        }
-
-        let preuves = this.$refs.preuves[0].getAttribute('data-selected');
-        if (preuves === "0") {
-          this.$refs["empreintes_proba"][0].style.display = 'none';
-          this.$refs["empreinte_durees"][0].style.display = 'none';
-        }
-        else {
-          this.$refs["empreintes_proba"][0].style.display = 'block';
-          this.$refs["empreinte_durees"][0].style.display = 'block';
-        }
-        let disjoncteur = this.$refs.disjoncteur[0].getAttribute('data-selected');
-        if (disjoncteur === "0") {
-          this.$refs["disjoncteur_map"][0].style.display = 'none';
-        }
-        else {
-          this.$refs["disjoncteur_map"][0].style.display = 'block';
-        }
-
-      } catch(exception){}
-
+      let preuves = this.$refs.preuves[0].getAttribute('data-selected');
+      if (preuves === "0") {
+        this.$refs["empreintes_proba"][0].style.display = 'none';
+        this.$refs["empreinte_durees"][0].style.display = 'none';
+      }
+      else {
+        this.$refs["empreintes_proba"][0].style.display = 'block';
+        this.$refs["empreinte_durees"][0].style.display = 'block';
+      }
+      let disjoncteur = this.$refs.disjoncteur[0].getAttribute('data-selected');
+      if (disjoncteur === "0") {
+        this.$refs["disjoncteur_map"][0].style.display = 'none';
+      }
+      else {
+        this.$refs["disjoncteur_map"][0].style.display = 'block';
+      }
+    },
+    toggleEditMode() {
+      this.editMode = !this.editMode;
+      if (this.editMode) this.$nextTick(function () {
+        this.updateForm();
+      });
+    },
+    hideHelp() {
+      this.helpShown = false;
+    },
+    showHelp() {
+      this.helpShown = true;
     }
   },
   computed: {
@@ -1108,56 +158,88 @@ export default {
       let alphabetRange = this._alphabetRange('a', 'z');
       let hash = this.config.map(subconfig => subconfig.parameters.map(parameter => parameter.selected)).flat();
       hash.forEach((value, index) => {
-        if (value === -1) hash[index] = "z";
+        if ([null, -1].includes(value)) hash[index] = "z";
         else hash[index] = alphabetRange[value];
       })
       hash = hash.join("");
       window.location.hash = hash;
       this.code = hash;
       this.updateForm();
+    },
+    getNonEmptySubConfig() {
+      let subConfigs = [];
+      this.config.forEach((subConfig) => {
+        let notEmpty = false;
+        subConfig.parameters.forEach((parameter, index) => {
+          if (![null, -1].includes(parameter.selected)) {
+            notEmpty = true;
+            if (parameter.id === "nb_maudits") {
+              for (let i =parameter.selected+1;i<=6;i++) subConfig.parameters[index+i].selected = null;
+            }
+          }
+        });
+        if (notEmpty) subConfigs.push(subConfig);
+      })
+      return subConfigs;
     }
   },
   created: function () {
     let splittedHash = window.location.hash.split('#');
     if (splittedHash.length !== 2) return;
     this.code = splittedHash[1];
+    this.editMode = false;
     this.loadCode();
-  },
-  mounted: function() {
-    this.updateCode;
   }
 }
 </script>
 <template>
-  <h1>Générateur de config Phasmophobia</h1>
+  <div class="help" v-if="helpShown">
+    <div class="hideHelpButton"><i class="fa-sharp fa-solid fa-circle-xmark" @click="hideHelp"></i></div>
+    <p>Cet outil a été développé afin d'aider à partager des difficultés personnalisées sur le jeu Phasmophobia.</p>
+    <p>
+      <b>Tu as reçu un code ?</b><br>
+      Rentre ce code dans le champ "Code" et appuie sur bouton "Charger" pour voir la configuration.
+    </p>
+    <p>
+      <b>Tu souhaites partager une configuration ?</b>
+    </p>
+    <ol>
+      <li>Fais ta configuration en cochant les paramètres que tu souhaites.</li>
+      <li>Une fois satisfait(e), appuis sur le bouton <i class="fa-solid fa-copy"></i> pour copier le code que tu pourras ensuite partager.</li>
+    </ol>
+    En mode édition vous pouvez précharger certaines configurations (Amateur, Intermédiaire, Professionnel et Cauchemar) correspondantes aux difficultés du jeu.<br>
+    Le bouton remise à zéro permet d'effacer toute la configuration.
+  </div>
+  <h1>Générateur de config Phasmophobia <span class="showHelpButton" @click="showHelp"><i class="fa-solid fa-circle-question"></i></span></h1>
   <div class="form">
     <div>
-      <input type="text" v-model="code" placeholder="Code">
-      <button @click="loadCode">
-        Charger
-      </button>
+      <span class="code_copy">
+        <input type="text" v-model="code" placeholder="Code" v-on:focus="$event.target.select()" ref="clone" >
+        <span class="copied" ref="copiedText">Code copié !</span>
+      </span>
+      <button @click="copy" class="copy"><i class="fa-solid fa-copy"></i></button>
+      <button @click="loadCode">Charger</button>
+      <button @click="toggleEditMode" :class="((editMode) ? 'on' : 'off') + ' edit'">Mode édition</button>
     </div>
-    <div>
-      <button @click="loadAmateur">
-        Amateur
-      </button>
-      <button @click="loadIntermediaire">
-        Intermédiaire
-      </button>
-      <button @click="loadProfessionnel">
-        Professionnel
-      </button>
-      <button @click="loadCauchemar">
-        Cauchemar
-      </button>
-      <button @click="loadTwentyFour">
-        x24
-      </button>
+    <div v-if="editMode">
+      <button @click="loadCode(preset.code)" v-for="preset in PRESET_CODES">{{ preset.name }}</button>
     </div>
-
   </div>
-
-  <div class="config">
+  <div class="config view" v-if="!editMode">
+    <div v-for="subconfig in getNonEmptySubConfig" class="subconfig">
+      <h2>{{ subconfig.name }}</h2>
+      <div class="parameter">
+        <div v-for="parameter in subconfig.parameters">
+          <template v-if="parameter.options[parameter.selected] !== undefined">
+            <div>
+              <b v-html="parameter.name"></b> : {{ parameter.options[parameter.selected].name }} <span :class="'view_arrow'+getViewIcon(parameter.options[parameter.selected].value)"></span>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="config" v-if="editMode">
     <div v-for="subconfig in config" class="subconfig">
       <h2>{{ subconfig.name }}</h2>
       <div v-for="parameter in subconfig.parameters" :class="getParameterClass(parameter)" :id="parameter.id" :ref="parameter.id" :data-selected="parameter.selected" :key="parameter.id+'_'+parameter.selected">
@@ -1175,13 +257,9 @@ export default {
             </div>
           </template>
         </div>
-
-
       </div>
     </div>
   </div>
 
-
 <!--  <div>Multiplicateur de difficulté : x{{ totalDifficulty }}</div>-->
-
 </template>

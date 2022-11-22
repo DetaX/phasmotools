@@ -1,12 +1,9 @@
 @import './base.css';
 
-@import url('https://fonts.cdnfonts.com/css/lazy-dog');
-@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 #app {
   margin: 0 auto;
-  padding: 2rem;
   font-weight: normal;
   font-family: 'Indie Flower', cursive;
 }
@@ -54,41 +51,74 @@ a,
   text-align: center;
 }
 .form input {
-  min-width: 380px;
   height: 38px;
   font-size: 1.25rem;
   background: #0000007d;
   padding: 0.5rem;
-  border: 3px solid #6c4233;
+  border: 1px solid #6c4233;
   color: #4fd359;
-  vertical-align: top;
-  margin-bottom: 0.5rem;
+  vertical-align: bottom;
   font-family: 'Indie Flower', cursive;
+  outline: none;
 }
 .form button {
   height: 38px;
   font-size: 1rem;
   background: #0000007d;
   padding: 0.5rem;
-  border: 3px solid #6c4233;
+  border: 1px solid #6c4233;
   color: #4fd359;
   margin-left: .5rem;
   transition: all .5s;
   font-family: 'Indie Flower', cursive;
-}
-.form button:hover {
   cursor: pointer;
-  border: 3px solid #4fd359;
 }
+.form button:not(.copy) {
+  margin-top: 0.5rem;
+}
+.form button:not(.copy):hover {
+  border: 1px solid #4fd359;
+}
+.form button.copy {
+  border-left:0;
+  margin:0;
+  padding: .5rem 1rem;
+}
+.form button.edit.on {
+  background: #4fd359;
+  color: #0000007d;
+  font-weight: bold;
+}
+.form .copied {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  color: white;
+  opacity: 0;
+}
+.form .copied.animate {
+  animation-name: copied;
+  animation-duration: 1s;
+}
+
+@keyframes copied {
+  from {opacity: 1;top: -25px;}
+  to {opacity: 0;top: -35px;}
+}
+
 .parameter {
   background: #fff;
   padding: 1rem;
   margin: 1rem 0;
-  padding-left: 65px;
+
   letter-spacing: 1px;
   color: #2c3e50;
 }
-.parameter:before {
+.config:not(.view) .parameter {
+  padding-left: 65px;
+}
+.config:not(.view) .parameter:before {
   content: '';
   font: var(--fa-font-solid);
   text-rendering: auto;
@@ -106,15 +136,15 @@ a,
   color: #fff;
 
 }
-.parameter.up:before {
+.config:not(.view) .parameter.up:before {
   content: '\f062';
   background: #359535;
 }
-.parameter.down:before {
+.config:not(.view) .parameter.down:before {
   content: '\f063';
   background: #c32424;
 }
-.parameter.danger:before {
+.config:not(.view) .parameter.danger:before {
   content: '\f071';
   background: #c32424;
 }
@@ -132,22 +162,66 @@ label {
   font-size: .75rem;
 }
 
+footer {
+  display: flex;
+  justify-content: space-between;
+
+  color: #f7f9979c;
+}
+footer .author {
+  padding: 0 1rem;
+  margin: 1rem 0;
+}
+footer .ver {
+  font-size: .75rem;
+  color: #6a2727;
+}
+.showHelpButton {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.hideHelpButton {
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: end;
+}
+.hideHelpButton i {
+  cursor: pointer;
+}
+.help {
+  z-index: 999;
+  position: absolute;
+  padding: 2rem;
+  background: #fff;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px 10px rgb(0 0 0 / 50%)
+}
+.view_arrow:before {
+  content: '';
+  font: var(--fa-font-solid);
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.view_arrow.up:before {
+  content: '\f062';
+  color: #359535;
+}
+.view_arrow.down:before {
+  content: '\f063';
+  color: #c32424;
+}
+.view_arrow.danger:before {
+  content: '\f071';
+  color: #c32424;
+}
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
 @media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    /*grid-template-columns: 1fr 1fr;*/
-    padding: 0 2rem;
-  }
   .subconfig {
     width: 30%;
   }
