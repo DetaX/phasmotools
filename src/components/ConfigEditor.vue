@@ -49,6 +49,9 @@ export default {
           index++;
         })
       });
+      this.$nextTick(function () {
+        this.updateForm();
+      });
     },
     getParameterClass(parameter) {
       this.$nextTick(function () {
