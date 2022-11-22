@@ -176,6 +176,16 @@ export default {
         subConfig.parameters.forEach((parameter, index) => {
           if (![null, -1].includes(parameter.selected)) {
             notEmpty = true;
+            if (parameter.id === "sprint" && parameter.selected === 0) {
+              for (let i =1;i<=2;i++) subConfig.parameters[index+i].selected = null;
+            }
+            if (parameter.id === "entite_friendly" && parameter.selected === 1) {
+              for (let i =1;i<=3;i++) subConfig.parameters[index+i].selected = null;
+            }
+            if (parameter.id === "preuves" && parameter.selected === 0) {
+              for (let i =1;i<=2;i++) subConfig.parameters[index+i].selected = null;
+            }
+            if (parameter.id === "disjoncteur" && parameter.selected === 0) subConfig.parameters[index+1].selected = null;
             if (parameter.id === "nb_maudits") {
               for (let i =parameter.selected+1;i<=6;i++) subConfig.parameters[index+i].selected = null;
             }
@@ -207,10 +217,11 @@ export default {
       <b>Tu souhaites partager une configuration ?</b>
     </p>
     <ol>
+      <li>Si tu n'es pas en mode édition, appuie sur le bouton "Mode édition"</li>
       <li>Fais ta configuration en cochant les paramètres que tu souhaites.</li>
-      <li>Une fois satisfait(e), appuis sur le bouton <i class="fa-solid fa-copy"></i> pour copier le code que tu pourras ensuite partager.</li>
+      <li>Une fois satisfait(e), appuie sur le bouton <i class="fa-solid fa-copy"></i> pour copier le code que tu pourras ensuite partager.</li>
     </ol>
-    En mode édition vous pouvez précharger certaines configurations (Amateur, Intermédiaire, Professionnel et Cauchemar) correspondantes aux difficultés du jeu.<br>
+    En mode édition tu peux précharger certaines configurations (Amateur, Intermédiaire, Professionnel et Cauchemar) correspondantes aux difficultés du jeu.<br>
     Le bouton remise à zéro permet d'effacer toute la configuration.
   </div>
   <h1>Générateur de config Phasmophobia <span class="showHelpButton" @click="showHelp"><i class="fa-solid fa-circle-question"></i></span></h1>
