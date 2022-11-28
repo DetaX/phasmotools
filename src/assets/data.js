@@ -1,4 +1,4 @@
-const data = [
+export const config = [
     {
         "name": "Joueur",
         "parameters": [
@@ -8,23 +8,23 @@ const data = [
                 "options": [
                     {
                         "name": "0",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "25",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "50",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "75",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "100",
-                        "value": 0
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -35,51 +35,51 @@ const data = [
                 "options": [
                     {
                         "name": "0",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "5",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "10",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "20",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "25",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "30",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "35",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "40",
-                        "value": 0
+                        "value": "default"
                     },
                     {
                         "name": "45",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "50",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "75",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "100",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -90,23 +90,23 @@ const data = [
                 "options": [
                     {
                         "name": "0",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "0.5",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "1",
-                        "value": 1.5
+                        "value": "default"
                     },
                     {
                         "name": "1.5",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "2",
-                        "value": "+"
+                        "value": "up"
                     }
                 ],
                 "selected": null
@@ -117,11 +117,11 @@ const data = [
                 "options": [
                     {
                         "name": "Off",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "On",
-                        "value": 1
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -132,27 +132,27 @@ const data = [
                 "options": [
                     {
                         "name": "1",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "2",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "3",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "4",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "5",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Illimitée",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -163,27 +163,27 @@ const data = [
                 "options": [
                     {
                         "name": "1",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "2",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "3",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "4",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "5",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "6",
-                        "value": "+"
+                        "value": "up"
                     }
                 ],
                 "selected": null
@@ -194,23 +194,23 @@ const data = [
                 "options": [
                     {
                         "name": "50",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "75",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "100",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "125",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "150",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -221,11 +221,11 @@ const data = [
                 "options": [
                     {
                         "name": "Off",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "On",
-                        "value": 1
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -236,11 +236,11 @@ const data = [
                 "options": [
                     {
                         "name": "Off",
-                        "value": "*"
+                        "value": "danger"
                     },
                     {
                         "name": "On",
-                        "value": 1
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -256,23 +256,23 @@ const data = [
                 "options": [
                     {
                         "name": "50",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "75",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "100",
-                        "value": 1.5
+                        "value": "default"
                     },
                     {
                         "name": "125",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "150",
-                        "value": "+"
+                        "value": "up"
                     }
                 ],
                 "selected": null
@@ -283,15 +283,15 @@ const data = [
                 "options": [
                     {
                         "name": "Faible",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Moyenne",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "Élevée",
-                        "value": "+"
+                        "value": "up"
                     }
                 ],
                 "selected": null
@@ -302,19 +302,19 @@ const data = [
                 "options": [
                     {
                         "name": "Nulle",
-                        "value": 0
+                        "value": "default"
                     },
                     {
                         "name": "Faible",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Moyennne",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Élevée",
-                        "value": "+"
+                        "value": "up"
                     }
                 ],
                 "selected": null
@@ -325,15 +325,15 @@ const data = [
                 "options": [
                     {
                         "name": "Faible",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Moyennne",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Élevée",
-                        "value": 1.5
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -344,15 +344,15 @@ const data = [
                 "options": [
                     {
                         "name": "Faible",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "Moyennne",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Élevée",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -363,11 +363,11 @@ const data = [
                 "options": [
                     {
                         "name": "Off",
-                        "value": 0
+                        "value": "default"
                     },
                     {
                         "name": "On",
-                        "value": "*"
+                        "value": "danger"
                     }
                 ],
                 "selected": null
@@ -378,31 +378,31 @@ const data = [
                 "options": [
                     {
                         "name": "0",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "1",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "2",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "3",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "4",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "5",
-                        "value": 1.5
+                        "value": "default"
                     },
                     {
                         "name": "6",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -413,15 +413,15 @@ const data = [
                 "options": [
                     {
                         "name": "Faible",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "Moyennne",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Élevée",
-                        "value": "+"
+                        "value": "up"
                     }
                 ],
                 "selected": null
@@ -432,19 +432,19 @@ const data = [
                 "options": [
                     {
                         "name": "Off",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "Faible",
-                        "value": 1.5
+                        "value": "default"
                     },
                     {
                         "name": "Moyenne",
-                        "value": 1.5
+                        "value": "default"
                     },
                     {
                         "name": "Élevée",
-                        "value": 1.5
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -455,19 +455,19 @@ const data = [
                 "options": [
                     {
                         "name": "0",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "1",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "2",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "3",
-                        "value": 1.5
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -478,19 +478,19 @@ const data = [
                 "options": [
                     {
                         "name": "25",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "50",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "75",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "100",
-                        "value": 1.5
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -501,31 +501,31 @@ const data = [
                 "options": [
                     {
                         "name": "15",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "30",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "60",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "90",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "120",
-                        "value": 1.5
+                        "value": "default"
                     },
                     {
                         "name": "180",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Illimitée",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -541,31 +541,31 @@ const data = [
                 "options": [
                     {
                         "name": "0",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "60",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
-                        "name": "60",
-                        "value": "+"
+                        "name": "90",
+                        "value": "up"
                     },
                     {
                         "name": "120",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "180",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "240",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "300",
-                        "value": 2.5
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -576,27 +576,27 @@ const data = [
                 "options": [
                     {
                         "name": "Aléatoire",
-                        "value": 0
+                        "value": "default"
                     },
                     {
                         "name": "Pluie légère",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Pluie forte",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Neige",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Vent",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Temps clair",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -607,19 +607,19 @@ const data = [
                 "options": [
                     {
                         "name": "Aucune",
-                        "value": 0
+                        "value": "default"
                     },
                     {
                         "name": "Faible",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Moyenne",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Élevée",
-                        "value": "+"
+                        "value": "up"
                     }
                 ],
                 "selected": null
@@ -630,23 +630,23 @@ const data = [
                 "options": [
                     {
                         "name": "Aucune",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Faible",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Moyenne",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Élevée",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Trés élevée",
-                        "value": 2
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -657,11 +657,11 @@ const data = [
                 "options": [
                     {
                         "name": "Off",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "On",
-                        "value": 1.5
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -672,11 +672,11 @@ const data = [
                 "options": [
                     {
                         "name": "Off",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "On",
-                        "value": 1.5
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -687,15 +687,15 @@ const data = [
                 "options": [
                     {
                         "name": "Cassé",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "Off",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "On",
-                        "value": 1.5
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -706,11 +706,11 @@ const data = [
                 "options": [
                     {
                         "name": "Off",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "On",
-                        "value": 1.5
+                        "value": "default"
                     }
                 ],
                 "selected": null
@@ -721,31 +721,31 @@ const data = [
                 "options": [
                     {
                         "name": "0",
-                        "value": "+"
+                        "value": "up"
                     },
                     {
                         "name": "1",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "2",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "3",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "4",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "5",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "6",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -756,31 +756,31 @@ const data = [
                 "options": [
                     {
                         "name": "Aléatoire",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "Cartes de tarot",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Planche Ouija",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Miroir hanté",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Boîte à musique",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Cercle d'invocation",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Poupée vaudou",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -791,31 +791,31 @@ const data = [
                 "options": [
                     {
                         "name": "Aléatoire",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "Cartes de tarot",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Planche Ouija",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Miroir hanté",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Boîte à musique",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Cercle d'invocation",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Poupée vaudou",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -826,31 +826,31 @@ const data = [
                 "options": [
                     {
                         "name": "Aléatoire",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "Cartes de tarot",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Planche Ouija",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Miroir hanté",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Boîte à musique",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Cercle d'invocation",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Poupée vaudou",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -861,31 +861,31 @@ const data = [
                 "options": [
                     {
                         "name": "Aléatoire",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "Cartes de tarot",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Planche Ouija",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Miroir hanté",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Boîte à musique",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Cercle d'invocation",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Poupée vaudou",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -896,31 +896,31 @@ const data = [
                 "options": [
                     {
                         "name": "Aléatoire",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "Cartes de tarot",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Planche Ouija",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Miroir hanté",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Boîte à musique",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Cercle d'invocation",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Poupée vaudou",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -931,31 +931,31 @@ const data = [
                 "options": [
                     {
                         "name": "Aléatoire",
-                        "value": 1
+                        "value": "default"
                     },
                     {
                         "name": "Cartes de tarot",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Planche Ouija",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Miroir hanté",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Boîte à musique",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Cercle d'invocation",
-                        "value": "-"
+                        "value": "down"
                     },
                     {
                         "name": "Poupée vaudou",
-                        "value": "-"
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -963,4 +963,217 @@ const data = [
         ]
     }
 ]
-export default data;
+export const proofs = [
+    {
+        "name": "Écriture fantomatique",
+        "id": "ecri",
+        "position": 4,
+        "status": 0
+    },
+    {
+        "name": "EMF niveau 5",
+        "id": "emf",
+        "position": 0,
+        "status": 0
+    },
+    {
+        "name": "Empreintes digitales",
+        "id": "empr",
+        "position": 2,
+        "status": 0
+    },
+    {
+        "name": "Orbe phantomatique",
+        "id": "orbs",
+        "position": 3,
+        "status": 0
+    },
+    {
+        "name": "Projecteur D.O.T.S.",
+        "id": "dots",
+        "position": 1,
+        "status": 0
+    },
+    {
+        "name": "Spirit Box",
+        "id": "spirit",
+        "position": 5,
+        "status": 0
+    },
+    {
+        "name": "Températures glaciales",
+        "id": "tempe",
+        "position": 6,
+        "status": 0
+    }
+]
+export const entities = [
+    {
+        "name": "Banshee",
+        "proofs": ["orbs", "empr", "dots"],
+        "needProof": null,
+        "position": 4,
+        "status": 0
+    },
+    {
+        "name": "Cauchemar",
+        "proofs": ["orbs", "spirit", "ecri"],
+        "needProof": null,
+        "position": 6,
+        "status": 0
+    },
+    {
+        "name": "Démon",
+        "proofs": ["tempe", "empr", "ecri"],
+        "needProof": null,
+        "position": 9,
+        "status": 0
+    },
+    {
+        "name": "Deogen",
+        "proofs": ["spirit", "ecri", "dots"],
+        "needProof": null,
+        "position": 22,
+        "status": 0
+    },
+    {
+        "name": "Djinn",
+        "proofs": ["emf", "tempe", "empr"],
+        "needProof": null,
+        "position": 5,
+        "status": 0
+    },
+    {
+        "name": "Esprit",
+        "proofs": ["emf", "spirit", "ecri"],
+        "needProof": null,
+        "position": 0,
+        "status": 0
+    },
+    {
+        "name": "Fantôme",
+        "proofs": ["spirit", "empr", "dots"],
+        "needProof": null,
+        "position": 2,
+        "status": 0
+    },
+    {
+        "name": "Goryo",
+        "proofs": ["emf", "empr", "dots"],
+        "needProof": null,
+        "position": 14,
+        "status": 0
+    },
+    {
+        "name": "Hantu",
+        "proofs": ["orbs", "tempe", "empr"],
+        "needProof": null,
+        "position": 13,
+        "status": 0
+    },
+    {
+        "name": "Le Mimic",
+        "proofs": ["spirit", "tempe", "empr"],
+        "needProof": null,
+        "position": 20,
+        "status": 0
+    },
+    {
+        "name": "Les Jumeaux",
+        "proofs": ["emf", "spirit", "tempe"],
+        "needProof": null,
+        "position": 17,
+        "status": 0
+    },
+    {
+        "name": "Moroï",
+        "proofs": ["spirit", "tempe", "ecri"],
+        "needProof": null,
+        "position": 21,
+        "status": 0
+    },
+    {
+        "name": "Myling",
+        "proofs": ["emf", "empr", "ecri"],
+        "needProof": null,
+        "position": 15,
+        "status": 0
+    },
+    {
+        "name": "Obake",
+        "proofs": ["emf", "orbs", "empr"],
+        "needProof": null,
+        "position": 19,
+        "status": 0
+    },
+    {
+        "name": "Ombre",
+        "proofs": ["emf", "tempe", "ecri"],
+        "needProof": null,
+        "position": 8,
+        "status": 0
+    },
+    {
+        "name": "Oni",
+        "proofs": ["emf", "tempe", "dots"],
+        "needProof": null,
+        "position": 11,
+        "status": 0
+    },
+    {
+        "name": "Onryo",
+        "proofs": ["orbs", "spirit", "tempe"],
+        "needProof": null,
+        "position": 16,
+        "status": 0
+    },
+    {
+        "name": "Poltergeist",
+        "proofs": ["spirit", "empr", "ecri"],
+        "needProof": null,
+        "position": 3,
+        "status": 0
+    },
+    {
+        "name": "Raiju",
+        "proofs": ["emf", "orbs", "dots"],
+        "needProof": null,
+        "position": 18,
+        "status": 0
+    },
+    {
+        "name": "Revenant",
+        "proofs": ["orbs", "tempe", "ecri"],
+        "needProof": null,
+        "position": 7,
+        "status": 0
+    },
+    {
+        "name": "Spectre",
+        "proofs": ["emf", "spirit", "dots"],
+        "needProof": null,
+        "position": 1,
+        "status": 0
+    },
+    {
+        "name": "Thayé",
+        "proofs": ["orbs", "ecri", "dots"],
+        "needProof": null,
+        "position": 23,
+        "status": 0
+    },
+    {
+        "name": "Yokai",
+        "proofs": ["orbs", "spirit", "dots"],
+        "needProof": null,
+        "position": 12,
+        "status": 0
+    },
+    {
+        "name": "Yurei",
+        "proofs": ["orbs", "tempe", "dots"],
+        "needProof": null,
+        "position": 10,
+        "status": 0
+    },
+]

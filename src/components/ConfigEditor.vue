@@ -1,5 +1,5 @@
 <script>
-import cfg from '../assets/data.js'
+import {config} from '@/assets/data'
 
 export default {
   data() {
@@ -10,10 +10,10 @@ export default {
         {"name": "Intermédiaire", "code": "egdbcecbbcbabbaebaddedabdbbbbbazzzzz"},
         {"name": "Professionnel", "code": "efebcecbbccbabadcaddeaadcbbbbbazzzzz"},
         {"name": "Cauchemar", "code": "eeebcecbbcccacaccbcdeaadbaababazzzzz"},
-        {"name": "x24", "code": "aeeaceaabecdaaaacaadeacdaaaaaazzzzzz"},
+       /* {"name": "x24", "code": "aeeaceaabecdaaaacaadeacdaaaaaazzzzzz"},*/
       ],
       code: '',
-      config: cfg,
+      config: config,
       editMode: true,
       helpShown: false
     }
@@ -29,11 +29,6 @@ export default {
       textElem.classList.remove('animate');
       void textElem.offsetWidth;
       textElem.classList.add('animate');
-    },
-    formatDifference(value1, value2) {
-      let value = value2 - value1;
-      if (value > 0) value = "+" + value;
-      return value;
     },
     loadCode(preset = null) {
       if (preset && typeof preset === 'string') this.code = preset;
@@ -52,42 +47,6 @@ export default {
       this.$nextTick(function () {
         this.updateForm();
       });
-    },
-    getParameterClass(parameter) {
-      this.$nextTick(function () {
-        let param = parameter.options[parameter.selected];
-        if (!param) return;
-        let value = param.value;
-        let refName = parameter.id;
-        let elem = this.$refs[refName][0];
-        switch(value) {
-          case "+":
-              elem.classList.add('up');
-            break;
-          case "-":
-            elem.classList.add('down');
-            break;
-          case "*":
-            elem.classList.add('danger');
-            break;
-          default:
-            break;
-        }
-      });
-
-      return "parameter";
-    },
-    getViewIcon(value) {
-      switch(value) {
-        case "+":
-          return ' up';
-        case "-":
-          return ' down';
-        case "*":
-          return ' danger';
-        default:
-          break;
-      }
     },
     updateForm() {
       if (!this.editMode) return;
@@ -144,19 +103,9 @@ export default {
       if (this.editMode) this.$nextTick(function () {
         this.updateForm();
       });
-    },
-    hideHelp() {
-      this.helpShown = false;
-    },
-    showHelp() {
-      this.helpShown = true;
     }
   },
   computed: {
-    totalDifficulty() {
-      //todo remove
-      return this.config.map(subconfig => subconfig.parameters.map(parameter => parameter.options[parameter.selected].value)).flat().reduce((acc, o) => acc + parseFloat(o), 0)
-    },
     updateCode() {
       let alphabetRange = this._alphabetRange('a', 'z');
       let hash = this.config.map(subconfig => subconfig.parameters.map(parameter => parameter.selected)).flat();
@@ -207,7 +156,7 @@ export default {
 </script>
 <template>
   <div class="help" v-if="helpShown">
-    <div class="hideHelpButton"><i class="fa-sharp fa-solid fa-circle-xmark" @click="hideHelp"></i></div>
+    <div class="hideHelpButton"><i class="fa-sharp fa-solid fa-circle-xmark" @click="helpShown = false"></i></div>
     <p>Cet outil a été développé afin d'aider à partager des difficultés personnalisées sur le jeu Phasmophobia.</p>
     <p>
       <b>Tu as reçu un code ?</b><br>
@@ -224,7 +173,7 @@ export default {
     En mode édition tu peux précharger certaines configurations (Amateur, Intermédiaire, Professionnel et Cauchemar) correspondantes aux difficultés du jeu.<br>
     Le bouton remise à zéro permet d'effacer toute la configuration.
   </div>
-  <h1>Générateur de config Phasmophobia <span class="showHelpButton" @click="showHelp"><i class="fa-solid fa-circle-question"></i></span></h1>
+  <h1>Configurateur de difficulté Phasmophobia <span class="showHelpButton" @click="helpShown = true"><i class="fa-solid fa-circle-question"></i></span></h1>
   <div class="form">
     <div>
       <span class="code_copy">
@@ -244,9 +193,9 @@ export default {
       <h2>{{ subconfig.name }}</h2>
       <div class="parameter">
         <div v-for="parameter in subconfig.parameters">
-          <template v-if="parameter.options[parameter.selected] !== undefined">
+          <template v-if="parameter.options[parameter.selected]">
             <div>
-              <b v-html="parameter.name"></b> : {{ parameter.options[parameter.selected].name }} <span :class="'view_arrow'+getViewIcon(parameter.options[parameter.selected].value)"></span>
+              <b v-html="parameter.name"></b> : {{ parameter.options[parameter.selected].name }} <span :class="'view_arrow '+parameter.options[parameter.selected].value"></span>
             </div>
           </template>
         </div>
@@ -256,13 +205,9 @@ export default {
   <div class="config" v-if="editMode">
     <div v-for="subconfig in config" class="subconfig">
       <h2>{{ subconfig.name }}</h2>
-      <div v-for="parameter in subconfig.parameters" :class="getParameterClass(parameter)" :id="parameter.id" :ref="parameter.id" :data-selected="parameter.selected" :key="parameter.id+'_'+parameter.selected">
+      <div v-for="parameter in subconfig.parameters" :class="'parameter ' + ((parameter.selected && parameter.options[parameter.selected]) ? parameter.options[parameter.selected].value:'')" :id="parameter.id" :ref="parameter.id" :data-selected="parameter.selected" :key="parameter.id+'_'+parameter.selected">
         <h3 v-html="parameter.name"></h3>
-<!--        <select v-model="parameter.selected">-->
-<!--          <option v-for="(option, index) in parameter.options" :value="index">-->
-<!--            {{ option.name }} <template v-if="index !== parameter.selected"> ({{ formatDifference(parameter.options[parameter.selected].value,option.value) }})</template>-->
-<!--          </option>-->
-<!--        </select>-->
+
         <div class="options">
           <template v-for="(option, index) in parameter.options">
             <div>
@@ -275,5 +220,4 @@ export default {
     </div>
   </div>
 
-<!--  <div>Multiplicateur de difficulté : x{{ totalDifficulty }}</div>-->
 </template>
