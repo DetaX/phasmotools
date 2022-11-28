@@ -545,27 +545,27 @@ export const config = [
                     },
                     {
                         "name": "60",
-                        "value": "up"
+                        "value": "danger"
                     },
                     {
                         "name": "90",
-                        "value": "up"
+                        "value": "danger"
                     },
                     {
                         "name": "120",
-                        "value": "up"
+                        "value": "danger"
                     },
                     {
                         "name": "180",
-                        "value": "up"
+                        "value": "danger"
                     },
                     {
                         "name": "240",
-                        "value": "up"
+                        "value": "danger"
                     },
                     {
                         "name": "300",
-                        "value": "default"
+                        "value": "danger"
                     }
                 ],
                 "selected": null

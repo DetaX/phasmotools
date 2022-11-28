@@ -205,7 +205,7 @@ export default {
   <div class="config" v-if="editMode">
     <div v-for="subconfig in config" class="subconfig">
       <h2>{{ subconfig.name }}</h2>
-      <div v-for="parameter in subconfig.parameters" :class="'parameter ' + ((parameter.selected && parameter.options[parameter.selected]) ? parameter.options[parameter.selected].value:'')" :id="parameter.id" :ref="parameter.id" :data-selected="parameter.selected" :key="parameter.id+'_'+parameter.selected">
+      <div v-for="parameter in subconfig.parameters" :class="'parameter ' + ((parameter.selected !== null && parameter.options[parameter.selected]) ? parameter.options[parameter.selected].value:'')" :id="parameter.id" :ref="parameter.id" :data-selected="parameter.selected" :key="parameter.id+'_'+parameter.selected">
         <h3 v-html="parameter.name"></h3>
 
         <div class="options">
