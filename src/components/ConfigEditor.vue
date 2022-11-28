@@ -210,10 +210,9 @@ export default {
 
         <div class="options">
           <template v-for="(option, index) in parameter.options">
-            <div>
-              <input :value="index" type="radio" :id="parameter.id+''+index" v-model="parameter.selected" v-on:change="updateCode">
-              <label :for="parameter.id+''+index">{{ option.name }}</label>
-            </div>
+            <label :for="parameter.id+''+index">
+              <input :value="index" type="radio" :id="parameter.id+''+index" v-model="parameter.selected" v-on:change="updateCode">{{ option.name }}
+            </label>
           </template>
         </div>
       </div>
