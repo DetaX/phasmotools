@@ -4,19 +4,19 @@ import Proofs from "@/components/Proofs.vue";
 
 const routes = [
     {
-      path: '/',
-      name : 'Home',
-      redirect: '/configurateur'
+        path: '/',
+        name : 'Home',
+        redirect: '/configurateur'
     },
     {
         path: '/configurateur',
         name: 'Générateur de configuration',
-        component: ConfigEditor,
+        component: ConfigEditor
     },
     {
         path: '/preuves',
         name: 'Preuves',
-        component: Proofs,
+        component: Proofs
     }
 ]
 const router = createRouter({

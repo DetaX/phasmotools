@@ -9,7 +9,12 @@ import ConfigEditor from './components/ConfigEditor.vue'
     <router-link to="/preuves">Preuves</router-link>
   </header>
   <main>
-    <router-view></router-view>
+    <router-view v-slot="{ Component, route }">
+      <!-- Use any custom transition and  to `fade` -->
+      <transition :name="'fade'" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </main>
 </template>
 

@@ -103,9 +103,7 @@ export default {
       if (this.editMode) this.$nextTick(function () {
         this.updateForm();
       });
-    }
-  },
-  computed: {
+    },
     updateCode() {
       let alphabetRange = this._alphabetRange('a', 'z');
       let hash = this.config.map(subconfig => subconfig.parameters.map(parameter => parameter.selected)).flat();
@@ -118,6 +116,8 @@ export default {
       this.code = hash;
       this.updateForm();
     },
+  },
+  computed: {
     getNonEmptySubConfig() {
       let subConfigs = [];
       this.config.forEach((subConfig) => {
@@ -151,72 +151,76 @@ export default {
     this.code = splittedHash[1];
     this.editMode = false;
     this.loadCode();
+  },
+  mounted: function() {
+    this.updateCode();
   }
 }
 </script>
 <template>
-  <div class="help" v-if="helpShown">
-    <div class="hideHelpButton"><i class="fa-sharp fa-solid fa-circle-xmark" @click="helpShown = false"></i></div>
-    <p>Cet outil a été développé afin d'aider à partager des difficultés personnalisées sur le jeu Phasmophobia.</p>
-    <p>
-      <b>Tu as reçu un code ?</b><br>
-      Rentre ce code dans le champ "Code" et appuie sur bouton "Charger" pour voir la configuration.
-    </p>
-    <p>
-      <b>Tu souhaites partager une configuration ?</b>
-    </p>
-    <ol>
-      <li>Si tu n'es pas en mode édition, appuie sur le bouton "Mode édition"</li>
-      <li>Fais ta configuration en cochant les paramètres que tu souhaites.</li>
-      <li>Une fois satisfait(e), appuie sur le bouton <i class="fa-solid fa-copy"></i> pour copier le code que tu pourras ensuite partager.</li>
-    </ol>
-    En mode édition tu peux précharger certaines configurations (Amateur, Intermédiaire, Professionnel et Cauchemar) correspondantes aux difficultés du jeu.<br>
-    Le bouton remise à zéro permet d'effacer toute la configuration.
-  </div>
-  <h1>Configurateur de difficulté Phasmophobia <span class="showHelpButton" @click="helpShown = true"><i class="fa-solid fa-circle-question"></i></span></h1>
-  <div class="form">
-    <div>
-      <span class="code_copy">
-        <input type="text" v-model="code" placeholder="Code" v-on:focus="$event.target.select()" ref="clone" >
-        <span class="copied" ref="copiedText">Code copié !</span>
-      </span>
-      <button @click="copy" class="copy"><i class="fa-solid fa-copy"></i></button>
-      <button @click="loadCode">Charger</button>
-      <button @click="toggleEditMode" :class="((editMode) ? 'on' : 'off') + ' edit'">Mode édition</button>
+  <div>
+    <div class="help" v-if="helpShown">
+      <div class="hideHelpButton"><i class="fa-sharp fa-solid fa-circle-xmark" @click="helpShown = false"></i></div>
+      <p>Cet outil a été développé afin d'aider à partager des difficultés personnalisées sur le jeu Phasmophobia.</p>
+      <p>
+        <b>Tu as reçu un code ?</b><br>
+        Rentre ce code dans le champ "Code" et appuie sur bouton "Charger" pour voir la configuration.
+      </p>
+      <p>
+        <b>Tu souhaites partager une configuration ?</b>
+      </p>
+      <ol>
+        <li>Si tu n'es pas en mode édition, appuie sur le bouton "Mode édition"</li>
+        <li>Fais ta configuration en cochant les paramètres que tu souhaites.</li>
+        <li>Une fois satisfait(e), appuie sur le bouton <i class="fa-solid fa-copy"></i> pour copier le code que tu pourras ensuite partager.</li>
+      </ol>
+      En mode édition tu peux précharger certaines configurations (Amateur, Intermédiaire, Professionnel et Cauchemar) correspondantes aux difficultés du jeu.<br>
+      Le bouton remise à zéro permet d'effacer toute la configuration.
     </div>
-    <div v-if="editMode">
-      <button @click="loadCode(preset.code)" v-for="preset in PRESET_CODES">{{ preset.name }}</button>
+    <h1>Configurateur de difficulté Phasmophobia <span class="showHelpButton" @click="helpShown = true"><i class="fa-solid fa-circle-question"></i></span></h1>
+    <div class="form">
+      <div>
+        <span class="code_copy">
+          <input type="text" v-model="code" placeholder="Code" v-on:focus="$event.target.select()" ref="clone" >
+          <span class="copied" ref="copiedText">Code copié !</span>
+        </span>
+        <button @click="copy" class="copy"><i class="fa-solid fa-copy"></i></button>
+        <button @click="loadCode">Charger</button>
+        <button @click="toggleEditMode" :class="((editMode) ? 'on' : 'off') + ' edit'">Mode édition</button>
+      </div>
+      <div v-if="editMode">
+        <button @click="loadCode(preset.code)" v-for="preset in PRESET_CODES">{{ preset.name }}</button>
+      </div>
     </div>
-  </div>
-  <div class="config view" v-if="!editMode">
-    <div v-for="subconfig in getNonEmptySubConfig" class="subconfig">
-      <h2>{{ subconfig.name }}</h2>
-      <div class="parameter">
-        <div v-for="parameter in subconfig.parameters">
-          <template v-if="parameter.options[parameter.selected]">
-            <div>
-              <b v-html="parameter.name"></b> : {{ parameter.options[parameter.selected].name }} <span :class="'view_arrow '+parameter.options[parameter.selected].value"></span>
-            </div>
-          </template>
+    <div class="config view" v-if="!editMode">
+      <div v-for="subconfig in getNonEmptySubConfig" class="subconfig">
+        <h2>{{ subconfig.name }}</h2>
+        <div class="parameter">
+          <div v-for="parameter in subconfig.parameters">
+            <template v-if="parameter.options[parameter.selected]">
+              <div>
+                <b v-html="parameter.name"></b> : {{ parameter.options[parameter.selected].name }} <span :class="'view_arrow '+parameter.options[parameter.selected].value"></span>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="config" v-if="editMode">
+      <div v-for="subconfig in config" class="subconfig">
+        <h2>{{ subconfig.name }}</h2>
+        <div v-for="parameter in subconfig.parameters" :class="'parameter ' + ((parameter.selected !== null && parameter.options[parameter.selected]) ? parameter.options[parameter.selected].value:'')" :id="parameter.id" :ref="parameter.id" :data-selected="parameter.selected" :key="parameter.id+'_'+parameter.selected">
+          <h3 v-html="parameter.name"></h3>
+
+          <div class="options">
+            <template v-for="(option, index) in parameter.options">
+              <label :for="parameter.id+''+index">
+                <input :value="index" type="radio" :id="parameter.id+''+index" v-model="parameter.selected" v-on:change="updateCode">{{ option.name }}
+              </label>
+            </template>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="config" v-if="editMode">
-    <div v-for="subconfig in config" class="subconfig">
-      <h2>{{ subconfig.name }}</h2>
-      <div v-for="parameter in subconfig.parameters" :class="'parameter ' + ((parameter.selected !== null && parameter.options[parameter.selected]) ? parameter.options[parameter.selected].value:'')" :id="parameter.id" :ref="parameter.id" :data-selected="parameter.selected" :key="parameter.id+'_'+parameter.selected">
-        <h3 v-html="parameter.name"></h3>
-
-        <div class="options">
-          <template v-for="(option, index) in parameter.options">
-            <label :for="parameter.id+''+index">
-              <input :value="index" type="radio" :id="parameter.id+''+index" v-model="parameter.selected" v-on:change="updateCode">{{ option.name }}
-            </label>
-          </template>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </template>

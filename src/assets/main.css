@@ -252,6 +252,7 @@ footer .ver {
 }
 .entity {
   border: 3px solid transparent;
+  padding: 0 1rem;
 }
 .proof:before {
   content: '\f0c8';
@@ -316,4 +317,18 @@ header a:hover, .router-link-active {
   .proofs {
     padding: 1rem 3rem;
   }
+}
+
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: .15s;
+  transition-property: height, opacity;
+  transition-timing-function: ease;
+  overflow: hidden;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }

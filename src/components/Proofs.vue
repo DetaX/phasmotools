@@ -59,24 +59,27 @@ export default {
 }
 </script>
 <template>
-  <h1>Quelle est cette entité ?</h1>
+  <div>
+    <h1>Quelle est cette entité ?</h1>
 
-  <div class="proofs">
-    <h2>Preuves</h2>
-    <hr>
-    <div class="proofs-container">
-      <div v-for="proof in getOrderedProofs" :class="'proof proof-'+proof.status" @click="toggle(proof)">
-        {{proof.name}}
+    <div class="proofs">
+      <h2>Preuves</h2>
+      <hr>
+      <div class="proofs-container">
+        <div v-for="proof in getOrderedProofs" :class="'proof proof-'+proof.status" @click="toggle(proof)">
+          {{proof.name}}
+        </div>
       </div>
-    </div>
-    <hr>
-    <div class="text">D'apres les preuves que nous avons rassemblées, nous pensons que l'entité est de type</div>
-    <div class="entities-container">
-      <div v-for="entity in getOrderedEntities" :class="'entity entity-'+entity.status + ' '+hideClass(entity)" @click="toggle(entity, 'entity')">
-        {{entity.name}}
+      <hr>
+      <div class="text">D'apres les preuves que nous avons rassemblées, nous pensons que l'entité est de type</div>
+      <div class="entities-container">
+        <div v-for="entity in getOrderedEntities">
+        <span  :class="'entity entity-'+entity.status + ' '+hideClass(entity)" @click="toggle(entity, 'entity')">
+          {{entity.name}}
+        </span>
+        </div>
       </div>
     </div>
   </div>
-
 
 </template>
