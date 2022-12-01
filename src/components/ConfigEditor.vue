@@ -116,6 +116,14 @@ export default {
       this.code = hash;
       this.updateForm();
     },
+    handleClickRadio(index, parameter) {
+      if (index===parameter.selected) {
+        parameter.selected=null;
+        this.$nextTick(function () {
+          this.updateCode();
+        });
+      }
+    }
   },
   computed: {
     getNonEmptySubConfig() {
@@ -215,7 +223,7 @@ export default {
           <div class="options">
             <template v-for="(option, index) in parameter.options">
               <label :for="parameter.id+''+index">
-                <input :value="index" type="radio" :id="parameter.id+''+index" v-model="parameter.selected" v-on:change="updateCode">{{ option.name }}
+                <input :value="index" type="radio" :id="parameter.id+''+index" v-model="parameter.selected" v-on:change="updateCode" @click="handleClickRadio(index, parameter)">{{ option.name }}
               </label>
             </template>
           </div>
