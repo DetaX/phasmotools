@@ -20,7 +20,7 @@ const routes = [
     }
 ]
 const router = createRouter({
-    history: createWebHistory("/phasmo/"),
+    history: createWebHistory("/"),
     routes,
 })
 export default router
