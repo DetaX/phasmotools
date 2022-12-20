@@ -1,6 +1,14 @@
-<script setup>
-import ConfigEditor from './components/ConfigEditor.vue'
+<script>
+import { useHead } from '@vueuse/head'
 
+export default {
+  name: "App",
+  mounted() {
+    useHead({
+      titleTemplate: (title) => !title ? 'Phasmotools' : `${title} - Phasmotools`,
+    });
+  },
+};
 </script>
 
 <template>

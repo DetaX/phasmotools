@@ -597,6 +597,14 @@ export const config = [
                     {
                         "name": "Temps clair",
                         "value": "down"
+                    },
+                    {
+                        "name": "Brouillard",
+                        "value": "up"
+                    },
+                    {
+                        "name": "Sunrise",
+                        "value": "down"
                     }
                 ],
                 "selected": null
@@ -1013,167 +1021,191 @@ export const entities = [
         "proofs": ["orbs", "empr", "dots"],
         "needProof": null,
         "position": 4,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Cauchemar",
         "proofs": ["orbs", "spirit", "ecri"],
         "needProof": null,
         "position": 6,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Démon",
         "proofs": ["tempe", "empr", "ecri"],
         "needProof": null,
         "position": 9,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Deogen",
         "proofs": ["spirit", "ecri", "dots"],
         "needProof": null,
         "position": 22,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Djinn",
         "proofs": ["emf", "tempe", "empr"],
         "needProof": null,
         "position": 5,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Esprit",
         "proofs": ["emf", "spirit", "ecri"],
         "needProof": null,
         "position": 0,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Fantôme",
         "proofs": ["spirit", "empr", "dots"],
         "needProof": null,
         "position": 2,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Goryo",
         "proofs": ["emf", "empr", "dots"],
         "needProof": null,
         "position": 14,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Hantu",
         "proofs": ["orbs", "tempe", "empr"],
         "needProof": null,
         "position": 13,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Le Mimic",
         "proofs": ["spirit", "tempe", "empr"],
         "needProof": null,
         "position": 20,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Les Jumeaux",
         "proofs": ["emf", "spirit", "tempe"],
         "needProof": null,
         "position": 17,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Moroï",
         "proofs": ["spirit", "tempe", "ecri"],
         "needProof": null,
         "position": 21,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Myling",
         "proofs": ["emf", "empr", "ecri"],
         "needProof": null,
         "position": 15,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Obake",
         "proofs": ["emf", "orbs", "empr"],
         "needProof": null,
         "position": 19,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Ombre",
         "proofs": ["emf", "tempe", "ecri"],
         "needProof": null,
         "position": 8,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Oni",
         "proofs": ["emf", "tempe", "dots"],
         "needProof": null,
         "position": 11,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Onryo",
         "proofs": ["orbs", "spirit", "tempe"],
         "needProof": null,
         "position": 16,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Poltergeist",
         "proofs": ["spirit", "empr", "ecri"],
         "needProof": null,
         "position": 3,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Raiju",
         "proofs": ["emf", "orbs", "dots"],
         "needProof": null,
         "position": 18,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Revenant",
         "proofs": ["orbs", "tempe", "ecri"],
         "needProof": null,
         "position": 7,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Spectre",
         "proofs": ["emf", "spirit", "dots"],
         "needProof": null,
         "position": 1,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
     {
         "name": "Thayé",
         "proofs": ["orbs", "ecri", "dots"],
         "needProof": null,
         "position": 23,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Yokai",
         "proofs": ["orbs", "spirit", "dots"],
         "needProof": null,
         "position": 12,
-        "status": 0
+        "status": 0,
+        "color": "pink"
     },
     {
         "name": "Yurei",
         "proofs": ["orbs", "tempe", "dots"],
         "needProof": null,
         "position": 10,
-        "status": 0
+        "status": 0,
+        "color": "blue"
     },
 ]

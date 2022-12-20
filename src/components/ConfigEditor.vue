@@ -1,5 +1,6 @@
 <script>
 import {config} from '@/assets/data'
+import {useHead} from "@vueuse/head";
 
 export default {
   data() {
@@ -162,6 +163,9 @@ export default {
   },
   mounted: function() {
     this.updateCode();
+    useHead({
+      title: "Configurateur de difficulté",
+    });
   }
 }
 </script>
