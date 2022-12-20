@@ -333,9 +333,9 @@ header a:hover, .router-link-active {
   opacity: 0
 }
 
-.proofs[data-show-colors="true"] *[data-color="pink"] {
+*[data-color="pink"] {
   color: #ff8a9e;
 }
-.proofs[data-show-colors="true"] *[data-color="blue"] {
+*[data-color="blue"] {
   color: #6e6eff;
 }

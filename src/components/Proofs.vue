@@ -56,13 +56,6 @@ export default {
     }
   },
   created: function () {
-    window.addEventListener('keydown', (e) => {
-      if (e.key == 'g') {
-        let current = this.$refs.proofs.getAttribute('data-show-colors');
-        let next = (current === "true") ? "false" : "true";
-        this.$refs.proofs.setAttribute('data-show-colors', next);
-      }
-    });
   },
   mounted: function() {
     useHead({
@@ -75,7 +68,7 @@ export default {
   <div>
     <h1>Quelle est cette entité ?</h1>
 
-    <div class="proofs" data-show-colors="false" ref="proofs">
+    <div class="proofs">
       <h2>Preuves</h2>
       <hr>
       <div class="proofs-container">
@@ -84,7 +77,7 @@ export default {
         </div>
       </div>
       <hr>
-      <div class="text">D'apres les preuves que nous avons rassemblées, nous pensons que l'entité est de type</div>
+      <div class="text">D'après les preuves que nous avons rassemblées, nous pensons que l'entité est de type</div>
       <div class="entities-container">
         <div v-for="entity in getOrderedEntities">
         <span  :class="'entity entity-'+entity.status + ' '+hideClass(entity)" @click="toggle(entity, 'entity')" :data-color="entity.color">
